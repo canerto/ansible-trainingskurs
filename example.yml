@@ -1,0 +1,17 @@
+---
+- hosts: itsserver1
+  become: yes
+  tasks:
+  - name: ensure ntp is installed
+    apt:
+      name: ntp
+      state: present
+
+  - name: ensure ntp is running
+    service:
+      name: ntp
+      state: started
+
+
+
+

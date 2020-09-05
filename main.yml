@@ -4,22 +4,14 @@
   become: yes
 #  become_user: root
 #  become_method: sudo
-  tasks:
-    - name: Update all packages
-      apt:
-       upgrade: dist
+#  tasks:
+#    - name: Update all packages
+#      apt:
+#       upgrade: dist
    
   roles:
-    - deploy_ssh_keys
-    - python
-    - add_user
-    - docker
+ #   - deploy_ssh_keys
+  #  - python
+#    - add_user
+#    - docker
 
-- name: Install LAMP (MySQL, Apache, PHP) on webservers
-  hosts: webservers
-  become: yes
-#  become_user: root
-#  become_method: sudo
-
-  roles:
-    - lamp

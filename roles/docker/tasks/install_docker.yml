@@ -1,6 +1,6 @@
 ---
 #- hosts: all
-  - include_vars: ../vars/main.yml
+#  - include_vars: ../vars/main.yml
 #  vars_files:
 #  - ../vars/main.yml
 #  become: yes
@@ -29,11 +29,11 @@
       id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
       state: present
 
-  - name: Verify the fingerprint
-    shell: sudo apt-key fingerprint 0EBFCD88
-    register: fingerprint
+ # - name: Verify the fingerprint
+ #   shell: apt-key fingerprint 0EBFCD88
+ #   register: fingerprint
 
-  - debug: var=fingerprint
+ # - debug: var=fingerprint
 
   - name: Add Docker repository
     apt_repository:
@@ -56,11 +56,11 @@
       state: started
       enabled: yes
 
-  - name: Verify that Docker Engine is installed correctly by running hello-world image
-    shell: sudo docker run hello-world
-    register: hello
+ # - name: Verify that Docker Engine is installed correctly by running hello-world image
+ #   shell: docker run hello-world
+ #   register: hello
 
-  - debug: var=hello
+ # - debug: var=hello
 
   - name: Manage Docker as a non-root user, so ensure docker users are added to the docker group
     user:                                       
@@ -70,11 +70,11 @@
     with_items: "{{ docker_users }}"
     when: docker_users | length > 0
 
-  - name: Install Docker Module for Python
-    pip:
-      name: docker
+ # - name: Install Docker Module for Python
+ #   pip:
+ #     name: docker
       #executable: pip3
-      state: latest
+#      state: latest
 
   - name: Reboot the machine
     reboot:

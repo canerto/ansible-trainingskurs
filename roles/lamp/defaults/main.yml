@@ -1,0 +1,8 @@
+---
+packages:
+- mysql-server
+- apache2
+- php
+- php-mysql
+- libapache2-mod-php
+- firefox
