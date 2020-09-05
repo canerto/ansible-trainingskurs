@@ -21,8 +21,7 @@
 - src: https://github.com/canerto/ansible-role-awx
 
 # Roles from galaxy
-- name:
-  - geerlingguy.php
-  - geerlingguy.apache
-  - geerlingguy.php
-  - geerlingguy.php-mysql
+- name: geerlingguy.php
+- name: geerlingguy.apache
+- name: geerlingguy.php
+- name: geerlingguy.php-mysql
