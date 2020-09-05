@@ -8,7 +8,7 @@
      state: present
      key: "{{ item }}"
     with_file:
-    - ~/.ssh/id_rsa.pub
+    - /home/itsadmin/.ssh/id_rsa.pub
 
   - name: Validate the sudoers file before saving
     lineinfile:
