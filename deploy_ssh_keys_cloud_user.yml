@@ -6,9 +6,10 @@
     authorized_key:
      user: cloud_user
      state: present
-     key: "{{ item }}"
-    with_file:
-    - /home/itsadmin/.ssh/id_rsa.pub
+     key: "{{ lookup('file', '/home/itsadmin/.ssh/id_rsa.pub') }}"
+#     key: "{{ item }}"
+#    with_file:
+#    - /home/itsadmin/.ssh/id_rsa.pub
 
   - name: Validate the sudoers file before saving
     lineinfile:
