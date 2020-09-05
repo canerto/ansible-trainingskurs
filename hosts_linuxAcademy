@@ -1,0 +1,10 @@
+itsserver1 ansible_host=54.78.39.10 ansible_user=cloud_user 
+itsserver2 ansible_host=63.34.170.74 ansible_user=cloud_user
+itsserver3 ansible_host=34.254.90.228 ansible_user=cloud_user
+
+[webservers]
+itsserver1 ansible_host=54.78.39.10 
+itsserver2 ansible_host=63.34.170.74
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3

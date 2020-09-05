@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Ensure key is in users home ~/.ssh/authorized_keys
+    authorized_key:
+     user: cloud_user
+     state: present
+     key: "{{ item }}"
+    with_file:
+    - ~/.ssh/id_rsa.pub
+
+  - name: Validate the sudoers file before saving
+    lineinfile:
+     path: /etc/sudoers
+     state: present
+     line: "cloud_user ALL=(ALL) NOPASSWD: ALL"
+     validate: /usr/sbin/visudo -cf %s
+     backup: yes
+

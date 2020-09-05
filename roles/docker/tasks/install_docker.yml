@@ -70,11 +70,11 @@
     with_items: "{{ docker_users }}"
     when: docker_users | length > 0
 
- # - name: Install Docker Module for Python
- #   pip:
- #     name: docker
-      #executable: pip3
-#      state: latest
+  - name: Install Docker Module for Python
+    pip:
+      name: docker
+      executable: pip3
+      state: latest
 
   - name: Reboot the machine
     reboot:

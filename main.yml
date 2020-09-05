@@ -8,7 +8,7 @@
        upgrade: dist
    
   roles:
-    - deploy_ssh_keys
+   # - deploy_ssh_keys
     - python
     - add_user
     - docker
