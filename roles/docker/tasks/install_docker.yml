@@ -76,5 +76,5 @@
       executable: pip3
       state: latest
 
-  - name: Reboot the machine
-    reboot:
+#  - name: Reboot the machine
+#    reboot:

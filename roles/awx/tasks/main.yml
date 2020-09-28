@@ -31,14 +31,19 @@
 
 - name: Delete existing docker-compose
   file:
-    path: "/usr/local/bin/docker-compose"
+    path: /usr/local/bin/docker-compose
     state: absent
 
-- name: Install docker-compose
-  get_url:
-    url: https://github.com/docker/compose/releases/download/1.25.4/docker-compose-Linux-x86_64
-    dest: "/usr/local/bin/docker-compose"
-    mode: 0755
+- name: Ensure curl is present
+  package:
+    name: curl
+    state: present
+
+#- name: Install docker-compose
+#  get_url:
+#    url: https://github.com/docker/compose/releases/download/1.27.4/docker-compose-Linux-x86_64
+#    dest: /usr/local/bin/docker-compose
+#    mode: 0755
 
 - name: Install git, npm and build-essential (including gcc, g++ and make)
   apt:
@@ -47,8 +52,15 @@
       - nodejs
       - npm
       - build-essential
+      - python3-setuptools
     state: present
     update_cache: yes
+
+- name: Install docker-compose with pip
+  pip:
+    name: docker-compose
+    executable: pip
+    state: present
 
 - name: Clone awx source code from GitHub
   git:

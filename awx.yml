@@ -4,6 +4,6 @@
 
   roles:
 #    - geerlingguy.ansible
-    - deploy_ssh_keys
+#    - deploy_ssh_keys
     - python
     - awx

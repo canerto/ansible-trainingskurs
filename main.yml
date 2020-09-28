@@ -1,6 +1,6 @@
 ---
 - name: Update all packages, deploy SSH Keys to Managed Nodes, Install Python, Add a new User, Install Docker and Create Container
-  hosts: all
+  hosts: all:!awx
   become: yes
   tasks:
     - name: Update all packages
